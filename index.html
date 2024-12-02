@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Apps Script Embed</title>
+</head>
+<body>
+  <h1>Hello from GitHub Pages!</h1>
+  <!-- Nhúng HTML từ Apps Script -->
+  <!--<iframe 
+    src="https://script.google.com/macros/s/AKfycbydYSN0G-3cYY316Uo6DMMOWzf68bXDS-ddOplw37179W0vEHBESG_sCpR0TutWhv9fJA/exec" 
+    width="100%" 
+    height="500" 
+    frameborder="0" 
+    allowfullscreen>
+  </iframe>
+  -->
+  <!--
+  <div style="display: flex; 
+            flex-direction: column; 
+            height: 100vh; 
+            overflow: hidden;">
+  <iframe src="https://script.google.com/macros/s/AKfycbydYSN0G-3cYY316Uo6DMMOWzf68bXDS-ddOplw37179W0vEHBESG_sCpR0TutWhv9fJA/exec" 
+          style="flex: 1; 
+                 overflow-y: auto; 
+                 border: none;">
+  </iframe>
+</div>
+-->
+<div id="iframe-container" style="max-height: 100vh; overflow-y: auto;">
+  <iframe id="dynamic-iframe" src="https://script.google.com/macros/s/AKfycbydYSN0G-3cYY316Uo6DMMOWzf68bXDS-ddOplw37179W0vEHBESG_sCpR0TutWhv9fJA/exec" 
+          style="width: 100%; border: none;"></iframe>
+</div>
+
+<script>
+  function adjustIframeHeight() {
+    const iframe = document.getElementById('dynamic-iframe');
+    const container = document.getElementById('iframe-container');
+    container.style.height = window.innerHeight + 'px';
+  }
+
+  // Chạy khi tải trang và khi thay đổi kích thước cửa sổ
+  window.addEventListener('resize', adjustIframeHeight);
+  window.addEventListener('load', adjustIframeHeight);
+</script>
+</body>
+</html>
